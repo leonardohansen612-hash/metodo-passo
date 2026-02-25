@@ -3,181 +3,603 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Método P.A.S.S.O.™</title>
-  <meta name="description" content="Organize sua ideia e faça sua primeira venda digital em até 30 dias." />
+  <title>Método P.A.S.S.O.™ — V3</title>
+  <meta name="description" content="Organize sua ideia e faça sua primeira venda digital em até 30 dias. Método P.A.S.S.O." />
+
   <style>
     :root{
-      --bg:#0b0f17;
-      --card:#111827;
-      --muted:#9ca3af;
+      --bg:#070b12;
+      --panel:#0c1220;
+      --card:#0f172a;
       --text:#e5e7eb;
-      --brand:#22c55e;
-      --brand2:#60a5fa;
-      --border:rgba(255,255,255,.08);
-      --radius:18px;
-      --max:1080px;
+      --muted:#a5b4fc;
+      --muted2:#9ca3af;
+      --border:rgba(255,255,255,.09);
+      --shadow: 0 18px 70px rgba(0,0,0,.45);
+      --radius:20px;
+
+      --green:#22c55e;
+      --blue:#60a5fa;
+      --red:#ef4444;
+      --amber:#f59e0b;
+      --pink:#ec4899;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: linear-gradient(180deg,#0b0f17,#0e1624);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
       color:var(--text);
-      line-height:1.6;
+      background:
+        radial-gradient(900px 520px at 18% -5%, rgba(96,165,250,.22), transparent 60%),
+        radial-gradient(900px 520px at 100% 0%, rgba(34,197,94,.16), transparent 60%),
+        radial-gradient(700px 520px at 55% 105%, rgba(236,72,153,.10), transparent 60%),
+        var(--bg);
+      line-height:1.55;
     }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1120px; margin:0 auto; padding:22px 18px 90px; }
 
-    .wrap{
-      max-width:var(--max);
-      margin:auto;
-      padding:40px 20px 80px;
+    /* Sticky header */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(7,11,18,.85), rgba(7,11,18,.55));
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-
-    h1{
-      font-size:clamp(30px,4vw,54px);
-      line-height:1.1;
-      margin-bottom:20px;
+    .navInner{
+      max-width:1120px; margin:0 auto;
+      padding:12px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-
-    h2{
-      margin-top:50px;
-      font-size:24px;
-    }
-
-    p{
-      color:#d1d5db;
-      margin-bottom:18px;
-    }
-
-    .card{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--border);
-      padding:25px;
-      border-radius:var(--radius);
-      margin-top:25px;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:16px 26px;
-      border-radius:12px;
-      font-weight:700;
-      text-decoration:none;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#06110b;
-      margin-top:20px;
-    }
-
-    ul{
-      padding-left:18px;
-    }
-
-    li{
-      margin-bottom:10px;
-    }
-
-    .price{
-      font-size:42px;
+    .brand{
+      display:flex; align-items:center; gap:10px;
       font-weight:900;
-      margin:10px 0;
+      letter-spacing:.3px;
     }
-
-    .center{
-      text-align:center;
+    .dot{ width:10px; height:10px; border-radius:999px; background:var(--green); box-shadow:0 0 20px rgba(34,197,94,.6); }
+    .tag{
+      font-size:12px;
+      color:rgba(229,231,235,.9);
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
     }
+    .navCta{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    }
+    .miniTimer{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(239,68,68,.35);
+      background: rgba(239,68,68,.10);
+      color: rgba(255,255,255,.92);
+      display:flex; align-items:center; gap:8px;
+    }
+    .miniTimer b{ color:#fff; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:14px;
+      padding:12px 16px;
+      font-weight:900;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      transition: transform .08s ease, border-color .2s ease, background .2s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color:rgba(255,255,255,.28); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(96,165,250,.9));
+      border-color: rgba(34,197,94,.35);
+      color:#06110b;
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, rgba(34,197,94,1), rgba(96,165,250,1)); }
+    .btn.ghost{ background:transparent; }
 
-    footer{
-      margin-top:60px;
-      text-align:center;
-      color:var(--muted);
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      padding:34px 22px;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(96,165,250,.12), transparent 60%),
+        radial-gradient(800px 400px at 100% 0%, rgba(34,197,94,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .ribbon{
+      position:absolute;
+      top:18px; right:18px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(245,158,11,.35);
+      background: rgba(245,158,11,.12);
+      font-size:12px;
+      color:rgba(255,255,255,.92);
+      display:flex; gap:8px; align-items:center;
+    }
+    .ribbon b{ color:#fff; }
+    .kicker{
+      color:rgba(229,231,235,.88);
+      font-weight:700;
+      letter-spacing:.2px;
+      margin:0 0 12px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size: clamp(30px, 4.3vw, 58px);
+      line-height: 1.05;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:rgba(229,231,235,.90);
+      font-size: clamp(15px, 1.6vw, 18px);
+      max-width: 920px;
+    }
+    .highlight{
+      display:inline-block;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(34,197,94,.35);
+      background: rgba(34,197,94,.10);
+      color: rgba(255,255,255,.92);
+      font-weight:800;
       font-size:13px;
     }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      margin-top:18px;
+    }
+    @media (max-width: 980px){ .heroGrid{ grid-template-columns:1fr; } }
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,42,.60);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .card h3{ margin:0 0 8px; font-size:18px; }
+    .card p{ margin:0; color:rgba(229,231,235,.88); }
+    .bullets{ margin:10px 0 0 18px; padding:0; }
+    .bullets li{ margin:8px 0; color:rgba(229,231,235,.88); }
 
+    .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:16px; }
+    .fine{ margin:0; color:rgba(156,163,175,.95); font-size:13px; }
+
+    /* Sections */
+    .sectionTitle{
+      margin:30px 0 10px;
+      font-size:12px;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      color:rgba(156,163,175,.95);
+    }
+    .grid5{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    @media (max-width: 980px){ .grid5{ grid-template-columns:1fr; } }
+    .pillCard{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      background: rgba(255,255,255,.03);
+      padding:14px;
+    }
+    .pillCard b{ display:block; margin-bottom:6px; }
+    .pillCard small{ color:rgba(156,163,175,.95); }
+
+    .divider{ height:1px; background: rgba(255,255,255,.10); margin:14px 0; }
+
+    /* Social proof */
+    .testGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .testGrid{ grid-template-columns:1fr; } }
+    .quote{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .quote p{ margin:0 0 10px; color:rgba(229,231,235,.90); }
+    .who{ color:rgba(156,163,175,.95); font-size:13px; font-weight:700; }
+
+    /* Price */
+    .priceBox{
+      border-radius:26px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(700px 300px at 10% 10%, rgba(34,197,94,.10), transparent 60%),
+        radial-gradient(700px 300px at 100% 0%, rgba(96,165,250,.10), transparent 60%),
+        rgba(15,23,42,.62);
+      box-shadow: var(--shadow);
+    }
+    .priceTop{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      flex-wrap:wrap;
+    }
+    .value{
+      font-size:44px;
+      font-weight:1000;
+      letter-spacing:-.02em;
+      margin:0;
+    }
+    .strike{ color:rgba(156,163,175,.95); font-size:13px; margin:0; }
+    .bonus{
+      margin-top:12px;
+      border:1px solid rgba(239,68,68,.32);
+      background: rgba(239,68,68,.08);
+      border-radius:18px;
+      padding:14px;
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .bonus b{ color:#fff; }
+    .bonus p{ margin:0; color:rgba(229,231,235,.92); }
+
+    .guarantee{
+      margin-top:14px;
+      border-left:4px solid rgba(34,197,94,.70);
+      padding-left:12px;
+      color:rgba(229,231,235,.92);
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      background: rgba(255,255,255,.03);
+      padding:14px 16px;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:rgba(229,231,235,.95);
+    }
+    details p{ margin:10px 0 0; color:rgba(229,231,235,.88); }
+
+    .footer{
+      margin-top:26px;
+      text-align:center;
+      color:rgba(156,163,175,.95);
+      font-size:12px;
+    }
+    .footer a{ text-decoration:underline; }
+
+    /* Little emphasis */
+    .warn{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(239,68,68,.35);
+      background: rgba(239,68,68,.10);
+      color:rgba(255,255,255,.92);
+      font-size:12px;
+      font-weight:800;
+    }
   </style>
 </head>
+
 <body>
+  <!-- Sticky nav -->
+  <div class="nav">
+    <div class="navInner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Método P.A.S.S.O.™</span>
+        <span class="tag">Página de vendas</span>
+      </div>
+
+      <div class="navCta">
+        <div class="miniTimer">⏳ Bônus expira em <b id="miniCountdown">--:--:--</b></div>
+        <a class="btn ghost" href="#como">Como funciona</a>
+        <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI">Quero começar agora</a>
+      </div>
+    </div>
+  </div>
+
   <div class="wrap">
+    <!-- Hero -->
+    <section class="hero" id="topo">
+      <div class="ribbon">🔥 <b>BÔNUS DE LANÇAMENTO</b> por 24h</div>
 
-    <h1>Você não está travado.<br>Você está desorganizado.</h1>
+      <p class="kicker">
+        Você não precisa de mais informação. Você precisa de direção. <span class="highlight">Plano de 30 dias</span>
+      </p>
 
-    <p>E é exatamente por isso que você ainda não fez sua primeira venda digital.</p>
+      <h1>Você não está travado.<br/>Você está desorganizado.</h1>
 
-    <p>Você tem ideias.<br>
-    Você consome conteúdo.<br>
-    Você sabe que o mercado é real.</p>
+      <p class="sub">
+        Você tem ideias, consome conteúdo e sabe que o digital funciona.
+        Mas começa… e não termina. Planeja… e não executa.
+        O problema nunca foi capacidade. Foi falta de método.
+      </p>
 
-    <p>Mas você começa… e não termina.<br>
-    Planeja… e não executa.</p>
+      <p class="sub" style="margin-top:-6px;">
+        <b>Organize sua ideia e faça sua primeira venda digital em até 30 dias</b> — mesmo começando do zero,
+        sem milhares de seguidores e sem depender de sorte.
+      </p>
 
-    <p>O problema nunca foi falta de capacidade.<br>
-    Foi falta de método.</p>
+      <div class="ctaRow">
+        <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI">Quero fazer minha primeira venda em 30 dias</a>
+        <a class="btn" href="#paraquem">Ver se é pra mim</a>
+        <span class="fine">Pagamento único • Acesso imediato (quando integrado ao checkout)</span>
+      </div>
 
-    <h2>Organize sua ideia e faça sua primeira venda digital em até 30 dias — mesmo começando do zero.</h2>
+      <div class="heroGrid">
+        <div class="card">
+          <h3>Se isso é você, você vai se identificar:</h3>
+          <ul class="bullets">
+            <li>Você consome conteúdo mas não executa</li>
+            <li>Começa projetos e abandona</li>
+            <li>Tem ideias boas, mas nunca tira do papel</li>
+            <li>Se sente capaz… mas não consistente</li>
+          </ul>
+          <div class="divider"></div>
+          <p><b>O problema não é talento.</b> É estrutura. E estrutura se constrói.</p>
+        </div>
 
-    <a href="SEU_LINK_CHECKOUT_AQUI" class="btn">Quero fazer minha primeira venda em 30 dias</a>
+        <div class="card">
+          <h3>O que você não teve até agora</h3>
+          <ul class="bullets">
+            <li>Problema validado (dor real)</li>
+            <li>Sequência organizada (passo a passo)</li>
+            <li>Oferta simples (clara e vendável)</li>
+            <li>Calendário de execução (sem improviso)</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="warn">⚠️ Sem método, você repete o ciclo: empolga → trava → recomeça.</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- Como funciona -->
+    <div class="sectionTitle" id="como">Como funciona</div>
     <div class="card">
-      <h2>Se isso soa familiar…</h2>
-      <ul>
-        <li>Você consome conteúdo mas não executa</li>
-        <li>Começa projetos e abandona</li>
-        <li>Tem ideias boas, mas nunca tira do papel</li>
-        <li>Se sente capaz… mas não consistente</li>
-      </ul>
-      <p>O problema não é talento. É estrutura.</p>
+      <h3>Um sistema dividido em 5 pilares (P.A.S.S.O.)</h3>
+      <p>
+        Você vai construir seu primeiro lançamento com uma sequência lógica:
+        escolher a dor certa, gerar atenção, montar oferta e executar com ordem.
+        <b>Sem excesso. Sem teoria vazia.</b>
+      </p>
+
+      <div class="grid5">
+        <div class="pillCard">
+          <b>🔵 P — Problema Real</b>
+          <small>Escolha uma dor que realmente vende.</small>
+        </div>
+        <div class="pillCard">
+          <b>🟢 A — Atenção Estratégica</b>
+          <small>Autoridade mesmo sendo iniciante.</small>
+        </div>
+        <div class="pillCard">
+          <b>🟡 S — Sequência de Construção</b>
+          <small>Organize o lançamento passo a passo.</small>
+        </div>
+        <div class="pillCard">
+          <b>🟠 S — Simplicidade da Oferta</b>
+          <small>Oferta clara, enxuta e vendável.</small>
+        </div>
+        <div class="pillCard">
+          <b>🔴 O — Ordem na Execução</b>
+          <small>Plano de 30 dias do zero até a abertura.</small>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI">Quero aplicar o método agora</a>
+      <p class="fine">Sem fórmula mágica • Sem promessa absurda • Sem depender de sorte</p>
     </div>
 
-    <h2>O que é o Método P.A.S.S.O.™</h2>
-
+    <!-- Resultados em 30 dias -->
+    <div class="sectionTitle">Em 30 dias</div>
     <div class="card">
-      <ul>
-        <li><strong>P — Problema Real:</strong> Escolher uma dor que realmente vende.</li>
-        <li><strong>A — Atenção Estratégica:</strong> Construir autoridade mesmo sendo iniciante.</li>
-        <li><strong>S — Sequência de Construção:</strong> Organizar o lançamento passo a passo.</li>
-        <li><strong>S — Simplicidade da Oferta:</strong> Criar uma oferta clara e vendável.</li>
-        <li><strong>O — Ordem na Execução:</strong> Plano direto de 30 dias do zero até a abertura.</li>
-      </ul>
-      <p>Sem fórmula mágica. Sem promessas irreais. Sem depender de sorte.</p>
-    </div>
-
-    <h2>O que você consegue em 30 dias</h2>
-
-    <div class="card">
-      <ul>
+      <h3>O que você vai conseguir</h3>
+      <ul class="bullets">
         <li>Definir um problema validado</li>
         <li>Criar uma promessa clara</li>
-        <li>Construir autoridade começando do zero</li>
+        <li>Construir autoridade mesmo começando agora</li>
         <li>Montar sua primeira oferta digital</li>
         <li>Abrir seu primeiro lançamento</li>
       </ul>
-    </div>
 
-    <h2>O que você recebe</h2>
-
-    <div class="card">
-      <ul>
-        <li>Manual completo com 25 capítulos estruturados</li>
-        <li>Plano operacional de 30 dias</li>
-        <li>Modelo simples de oferta</li>
-        <li>Roteiro de abertura</li>
-        <li>Checklist de execução</li>
+      <div class="divider"></div>
+      <h3>Sem precisar:</h3>
+      <ul class="bullets">
+        <li>Ter milhares de seguidores</li>
+        <li>Ter equipe</li>
+        <li>Investir em tráfego pago</li>
+        <li>Ser especialista famoso</li>
       </ul>
     </div>
 
-    <h2>Investimento</h2>
+    <!-- Para quem é -->
+    <div class="sectionTitle" id="paraquem">Para quem é</div>
+    <div class="card">
+      <h3>É para quem quer sair do zero com método</h3>
+      <ul class="bullets">
+        <li>Quem está cansado de “aprender” e não executar</li>
+        <li>Quem quer uma sequência clara (o que fazer hoje, amanhã, na semana)</li>
+        <li>Quem quer parar de improvisar</li>
+        <li>Quem quer a primeira venda como marco de virada</li>
+      </ul>
 
-    <div class="card center">
-      <p>Pagamento único</p>
-      <div class="price">R$ 97</div>
-      <p>Sem mensalidade • Sem taxa escondida</p>
-      <a href="SEU_LINK_CHECKOUT_AQUI" class="btn">Sim, eu quero sair do zero agora</a>
-      <p style="margin-top:20px;">🛡️ Garantia de 7 dias. Se não fizer sentido para você, reembolso sem burocracia.</p>
+      <div class="divider"></div>
+
+      <h3>Para quem não é</h3>
+      <ul class="bullets">
+        <li>Quer enriquecer rápido</li>
+        <li>Procura atalho</li>
+        <li>Não executa</li>
+        <li>Culpa algoritmo</li>
+      </ul>
     </div>
 
-    <footer>
-      © 2026 Método P.A.S.S.O.™
-    </footer>
+    <!-- Prova social -->
+    <div class="sectionTitle">Resultados e prova social</div>
+    <div class="card">
+      <h3>O que pessoas iniciantes costumam dizer quando finalmente têm estrutura</h3>
+      <p class="fine">⚠️ Troque os textos abaixo por depoimentos reais assim que você tiver (mesmo 2 já muda o jogo).</p>
 
+      <div class="testGrid" style="margin-top:12px;">
+        <div class="quote">
+          <p>“Parei de pular de ideia em ideia. Em poucos dias eu já sabia exatamente o que fazer e em que ordem.”</p>
+          <div class="who">— Aluno iniciante (depoimento)</div>
+        </div>
+        <div class="quote">
+          <p>“O que mais mudou foi a clareza. Antes eu estava perdido. Agora eu tenho um plano.”</p>
+          <div class="who">— Aluno iniciante (depoimento)</div>
+        </div>
+        <div class="quote">
+          <p>“Eu achava que era falta de talento. Era falta de método. Isso destravou minha execução.”</p>
+          <div class="who">— Aluno iniciante (depoimento)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- O que recebe -->
+    <div class="sectionTitle">O que você recebe</div>
+    <div class="card">
+      <h3>Conteúdo direto + execução guiada</h3>
+      <ul class="bullets">
+        <li>Manual completo com 25 capítulos estruturados</li>
+        <li>Plano operacional de 30 dias</li>
+        <li>Estrutura pronta de promessa</li>
+        <li>Modelo simples de oferta</li>
+        <li>Roteiro de abertura</li>
+        <li>Estrutura de urgência final</li>
+        <li>Checklist de execução</li>
+      </ul>
+      <p class="fine">Tudo organizado em progressão lógica. Sem excesso. Sem enrolação.</p>
+    </div>
+
+    <!-- Investimento + urgência -->
+    <div class="sectionTitle" id="investimento">Investimento</div>
+    <div class="priceBox">
+      <div class="priceTop">
+        <div>
+          <p class="strike">Pagamento único</p>
+          <p class="value">R$ 97</p>
+          <p class="fine">Sem mensalidade • Sem taxa escondida</p>
+        </div>
+        <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI">Quero começar agora</a>
+      </div>
+
+      <div class="bonus">
+        <div style="font-size:18px;">⏳</div>
+        <div>
+          <p><b>Bônus de lançamento ativo:</b> “Checklist de 30 dias + Roteiro de abertura”</p>
+          <p class="fine" style="margin-top:6px;">
+            Disponível apenas enquanto o contador estiver ativo:
+            <b id="bigCountdown">--:--:--</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="guarantee">
+        <b>🛡️ Garantia de 7 dias</b><br/>
+        Teste o método. Se não fizer sentido pra você, reembolso sem burocracia.
+      </div>
+
+      <div class="divider"></div>
+
+      <p style="margin:0; color:rgba(229,231,235,.92)">
+        <b>Vamos ser diretos:</b><br/>
+        Você não precisa se sentir pronto. Precisa começar organizado.
+        Se aplicar, funciona. Se não aplicar, nada muda.
+      </p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="sectionTitle">Perguntas frequentes</div>
+    <div class="card">
+      <details>
+        <summary>Funciona mesmo se eu estiver no zero?</summary>
+        <p>Sim. O método foi desenhado para iniciantes: clareza + sequência + execução. Você vai saber o que fazer e em que ordem.</p>
+      </details>
+      <details>
+        <summary>Preciso de seguidores para começar?</summary>
+        <p>Não. O foco é construir atenção estratégica do jeito certo, mesmo começando pequeno.</p>
+      </details>
+      <details>
+        <summary>Preciso investir em tráfego pago?</summary>
+        <p>Não é obrigatório. Você pode começar no orgânico com consistência e estrutura. Tráfego pode vir depois, se fizer sentido.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo por dia eu preciso?</summary>
+        <p>O ideal é separar pelo menos 30–60 minutos por dia para aplicar o plano e avançar no calendário de 30 dias.</p>
+      </details>
+
+      <div class="divider"></div>
+      <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI">Quero aplicar o P.A.S.S.O. agora</a>
+      <p class="fine">Dica: depois que você colocar depoimentos reais, sua conversão tende a subir bastante.</p>
+    </div>
+
+    <p class="footer">© <span id="year"></span> Método P.A.S.S.O.™ • <a href="#topo">Voltar ao topo</a></p>
   </div>
+
+  <script>
+    // Ano
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Urgência com countdown real (24h) persistente por navegador
+    // Observação: isso é "urgência por sessão/usuário" (não global).
+    const HOURS = 24; // ajuste aqui se quiser 48, 72, etc.
+    const KEY = "passo_bonus_deadline_v3";
+
+    function pad(n){ return String(n).padStart(2,"0"); }
+
+    function getDeadline(){
+      const saved = localStorage.getItem(KEY);
+      if(saved){
+        const d = new Date(saved);
+        if(!isNaN(d.getTime())) return d;
+      }
+      const d = new Date(Date.now() + HOURS*60*60*1000);
+      localStorage.setItem(KEY, d.toISOString());
+      return d;
+    }
+
+    const deadline = getDeadline();
+
+    function tick(){
+      const now = new Date();
+      let diff = deadline - now;
+
+      if(diff <= 0){
+        diff = 0;
+        document.getElementById("miniCountdown").textContent = "ENCERRADO";
+        document.getElementById("bigCountdown").textContent = "ENCERRADO";
+        return;
+      }
+
+      const h = Math.floor(diff / (1000*60*60));
+      const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const s = Math.floor((diff % (1000*60)) / 1000);
+
+      const text = `${pad(h)}:${pad(m)}:${pad(s)}`;
+      document.getElementById("miniCountdown").textContent = text;
+      document.getElementById("bigCountdown").textContent = text;
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
 </body>
 </html>
