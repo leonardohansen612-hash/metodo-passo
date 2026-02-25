@@ -309,7 +309,8 @@
       <div class="navCta">
         <div class="miniTimer">⏳ Bônus expira em <b id="miniCountdown">--:--:--</b></div>
         <a class="btn ghost" href="#como">Como funciona</a>
-        <a class="btn primary" href="https://pay.kiwify.com.br/afBihb8">Quero começar agora</a>
+        <!-- ✅ BOTÃO DE CHECKOUT -->
+        <a class="btn primary checkout" href="#">Quero começar agora</a>
       </div>
     </div>
   </div>
@@ -337,7 +338,8 @@
       </p>
 
       <div class="ctaRow">
-        <a class="btn primary" href="https://pay.kiwify.com.br/afBihb8">Quero fazer minha primeira venda em 30 dias</a>
+        <!-- ✅ BOTÃO DE CHECKOUT -->
+        <a class="btn primary checkout" href="#">Quero fazer minha primeira venda em 30 dias</a>
         <a class="btn" href="#paraquem">Ver se é pra mim</a>
         <span class="fine">Pagamento único • Acesso imediato (quando integrado ao checkout)</span>
       </div>
@@ -403,7 +405,8 @@
       </div>
 
       <div class="divider"></div>
-      <a class="btn primary" href="https://pay.kiwify.com.br/afBihb8">Quero aplicar o método agora</a>
+      <!-- ✅ BOTÃO DE CHECKOUT -->
+      <a class="btn primary checkout" href="#">Quero aplicar o método agora</a>
       <p class="fine">Sem fórmula mágica • Sem promessa absurda • Sem depender de sorte</p>
     </div>
 
@@ -498,7 +501,8 @@
           <p class="value">R$ 97</p>
           <p class="fine">Sem mensalidade • Sem taxa escondida</p>
         </div>
-        <a class="btn primary" href="https://pay.kiwify.com.br/afBihb8">Quero começar agora</a>
+        <!-- ✅ BOTÃO DE CHECKOUT -->
+        <a class="btn primary checkout" href="#">Quero começar agora</a>
       </div>
 
       <div class="bonus">
@@ -547,7 +551,8 @@
       </details>
 
       <div class="divider"></div>
-      <a class="btn primary" href="https://pay.kiwify.com.br/afBihb8">Quero aplicar o P.A.S.S.O. agora</a>
+      <!-- ✅ BOTÃO DE CHECKOUT -->
+      <a class="btn primary checkout" href="#">Quero aplicar o P.A.S.S.O. agora</a>
       <p class="fine">Dica: depois que você colocar depoimentos reais, sua conversão tende a subir bastante.</p>
     </div>
 
@@ -555,6 +560,16 @@
   </div>
 
   <script>
+    // ✅ LINK ÚNICO DO CHECKOUT (troque aqui se mudar no futuro)
+    const CHECKOUT_URL = "https://pay.kiwify.com.br/afBihb8";
+
+    // ✅ Aplica o link em todos os botões de checkout + abre em outra aba
+    document.querySelectorAll("a.checkout").forEach(a => {
+      a.href = CHECKOUT_URL;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    });
+
     // Ano
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -583,7 +598,6 @@
       let diff = deadline - now;
 
       if(diff <= 0){
-        diff = 0;
         document.getElementById("miniCountdown").textContent = "ENCERRADO";
         document.getElementById("bigCountdown").textContent = "ENCERRADO";
         return;
