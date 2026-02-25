@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Método P.A.S.S.O.™ — Página de Vendas</title>
-  <meta name="description" content="Sistema estruturado para tirar você do zero e levar até sua primeira venda digital em 30 dias." />
+  <title>Método P.A.S.S.O.™</title>
+  <meta name="description" content="Organize sua ideia e faça sua primeira venda digital em até 30 dias." />
   <style>
     :root{
       --bg:#0b0f17;
@@ -13,303 +13,171 @@
       --text:#e5e7eb;
       --brand:#22c55e;
       --brand2:#60a5fa;
-      --danger:#ef4444;
       --border:rgba(255,255,255,.08);
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
       --radius:18px;
-      --max: 1080px;
+      --max:1080px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.25), transparent 60%),
-                  radial-gradient(900px 500px at 100% 0%, rgba(34,197,94,.18), transparent 55%),
-                  var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: linear-gradient(180deg,#0b0f17,#0e1624);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 72px;}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:10px 0 22px;
+
+    .wrap{
+      max-width:var(--max);
+      margin:auto;
+      padding:40px 20px 80px;
     }
-    .logo{
-      font-weight:800; letter-spacing:.6px;
-      display:flex; align-items:center; gap:10px;
+
+    h1{
+      font-size:clamp(30px,4vw,54px);
+      line-height:1.1;
+      margin-bottom:20px;
     }
-    .badge{
-      font-size:12px; padding:6px 10px; border:1px solid var(--border);
-      border-radius:999px; color:var(--muted); background:rgba(255,255,255,.03);
+
+    h2{
+      margin-top:50px;
+      font-size:24px;
     }
-    .hero{
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:34px 22px;
+
+    p{
+      color:#d1d5db;
+      margin-bottom:18px;
     }
-    .kicker{color:var(--muted); font-weight:600; letter-spacing:.2px; margin:0 0 10px;}
-    h1{margin:0 0 14px; font-size:clamp(28px, 3.8vw, 52px); line-height:1.08;}
-    .sub{
-      margin:0 0 22px; color:rgba(229,231,235,.9);
-      font-size:clamp(15px, 1.6vw, 18px);
-      max-width: 880px;
-    }
-    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:18px;}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      border-radius:14px; padding:14px 18px; font-weight:800;
-      text-decoration:none; border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-      min-width: 240px;
-    }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.28);}
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(96,165,250,.8));
-      border-color: rgba(34,197,94,.35);
-      color:#06110b;
-    }
-    .btn.primary:hover{background: linear-gradient(135deg, rgba(34,197,94,1), rgba(96,165,250,.95));}
-    .fine{color:var(--muted); font-size:13px; margin:0;}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:16px;
-      margin-top:18px;
-    }
-    @media (max-width: 920px){ .grid{grid-template-columns:1fr;} }
+
     .card{
-      border:1px solid var(--border);
-      background:rgba(17,24,39,.62);
-      border-radius:var(--radius);
-      padding:18px;
-    }
-    .card h2{margin:0 0 8px; font-size:20px;}
-    .card p{margin:0; color:rgba(229,231,235,.92)}
-    .section{margin-top:18px;}
-    .sectionTitle{
-      margin:26px 0 10px;
-      font-size:14px; letter-spacing:.22em; text-transform:uppercase;
-      color:rgba(156,163,175,.95);
-    }
-    ul{margin:10px 0 0 18px; padding:0}
-    li{margin:8px 0; color:rgba(229,231,235,.92)}
-    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
-    .pill{
-      padding:8px 10px; border-radius:999px; border:1px solid var(--border);
-      background:rgba(255,255,255,.03); color:rgba(229,231,235,.9);
-      font-size:13px;
-    }
-    .pGrid{
-      display:grid; grid-template-columns: repeat(5, 1fr);
-      gap:10px; margin-top:12px;
-    }
-    @media (max-width: 980px){ .pGrid{grid-template-columns:1fr;} }
-    .p{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:14px;
       background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      padding:25px;
+      border-radius:var(--radius);
+      margin-top:25px;
     }
-    .p b{display:block; margin-bottom:6px;}
-    .p small{color:var(--muted)}
+
+    .btn{
+      display:inline-block;
+      padding:16px 26px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#06110b;
+      margin-top:20px;
+    }
+
+    ul{
+      padding-left:18px;
+    }
+
+    li{
+      margin-bottom:10px;
+    }
+
     .price{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      flex-wrap:wrap;
+      font-size:42px;
+      font-weight:900;
+      margin:10px 0;
     }
-    .value{
-      font-size:40px; font-weight:900; letter-spacing:-.02em;
-    }
-    .strike{color:var(--muted); font-size:13px;}
-    .guarantee{
-      border-left:4px solid rgba(34,197,94,.75);
-      padding-left:12px;
-      color:rgba(229,231,235,.92);
-    }
-    .footer{
-      margin-top:26px; color:var(--muted); font-size:12px;
+
+    .center{
       text-align:center;
     }
-    .hr{height:1px; background:var(--border); margin:14px 0;}
+
+    footer{
+      margin-top:60px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="topbar">
-      <div class="logo">
-        <span style="width:10px;height:10px;border-radius:999px;background:var(--brand);display:inline-block"></span>
-        <span>Método P.A.S.S.O.™</span>
-        <span class="badge">Página de vendas</span>
-      </div>
-      <a class="badge" href="#comprar">Ir para o botão ↓</a>
+
+    <h1>Você não está travado.<br>Você está desorganizado.</h1>
+
+    <p>E é exatamente por isso que você ainda não fez sua primeira venda digital.</p>
+
+    <p>Você tem ideias.<br>
+    Você consome conteúdo.<br>
+    Você sabe que o mercado é real.</p>
+
+    <p>Mas você começa… e não termina.<br>
+    Planeja… e não executa.</p>
+
+    <p>O problema nunca foi falta de capacidade.<br>
+    Foi falta de método.</p>
+
+    <h2>Organize sua ideia e faça sua primeira venda digital em até 30 dias — mesmo começando do zero.</h2>
+
+    <a href="SEU_LINK_CHECKOUT_AQUI" class="btn">Quero fazer minha primeira venda em 30 dias</a>
+
+    <div class="card">
+      <h2>Se isso soa familiar…</h2>
+      <ul>
+        <li>Você consome conteúdo mas não executa</li>
+        <li>Começa projetos e abandona</li>
+        <li>Tem ideias boas, mas nunca tira do papel</li>
+        <li>Se sente capaz… mas não consistente</li>
+      </ul>
+      <p>O problema não é talento. É estrutura.</p>
     </div>
 
-    <section class="hero" id="topo">
-      <p class="kicker">Você não precisa de mais informação. Você precisa de direção.</p>
-      <h1>Você Não Está Travado.<br/>Você Está Desorganizado.</h1>
-      <p class="sub">
-        Se você quer lançar seu primeiro produto digital mas vive começando e nunca executando,
-        o problema não é falta de capacidade. É falta de método.
-      </p>
+    <h2>O que é o Método P.A.S.S.O.™</h2>
 
-      <div class="ctaRow">
-        <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI" id="btnHero">QUERO COMEÇAR MEU PRIMEIRO LANÇAMENTO AGORA</a>
-        <a class="btn" href="#oquee">Ver como funciona</a>
-        <p class="fine">Pagamento único • Acesso imediato (quando integrado ao checkout)</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h2>O Método P.A.S.S.O.™</h2>
-          <p>
-            Sistema estruturado para tirar você do zero e levar até sua primeira venda digital em 30 dias —
-            com clareza, sequência e execução. Sem fórmula mágica. Sem promessa absurda. Sem depender de sorte.
-          </p>
-          <div class="pillRow">
-            <span class="pill">Clareza</span>
-            <span class="pill">Sequência</span>
-            <span class="pill">Execução</span>
-            <span class="pill">Sem improviso</span>
-          </div>
-        </div>
-        <div class="card">
-          <h2>O que você não teve até agora</h2>
-          <ul>
-            <li>Problema validado</li>
-            <li>Sequência organizada</li>
-            <li>Oferta simples</li>
-            <li>Calendário claro de execução</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div class="section" id="oquee">
-      <div class="sectionTitle">O que é</div>
-      <div class="card">
-        <h2>Um sistema dividido em 5 pilares</h2>
-        <div class="pGrid">
-          <div class="p">
-            <b>🔵 P — Problema Real</b>
-            <small>Escolha uma dor que realmente vende.</small>
-          </div>
-          <div class="p">
-            <b>🟢 A — Atenção Estratégica</b>
-            <small>Construa autoridade mesmo sendo iniciante.</small>
-          </div>
-          <div class="p">
-            <b>🟡 S — Sequência de Construção</b>
-            <small>Organize o lançamento passo a passo.</small>
-          </div>
-          <div class="p">
-            <b>🟠 S — Simplicidade da Oferta</b>
-            <small>Oferta clara, enxuta e vendável.</small>
-          </div>
-          <div class="p">
-            <b>🔴 O — Ordem na Execução</b>
-            <small>Plano de 30 dias do zero até a abertura.</small>
-          </div>
-        </div>
-      </div>
+    <div class="card">
+      <ul>
+        <li><strong>P — Problema Real:</strong> Escolher uma dor que realmente vende.</li>
+        <li><strong>A — Atenção Estratégica:</strong> Construir autoridade mesmo sendo iniciante.</li>
+        <li><strong>S — Sequência de Construção:</strong> Organizar o lançamento passo a passo.</li>
+        <li><strong>S — Simplicidade da Oferta:</strong> Criar uma oferta clara e vendável.</li>
+        <li><strong>O — Ordem na Execução:</strong> Plano direto de 30 dias do zero até a abertura.</li>
+      </ul>
+      <p>Sem fórmula mágica. Sem promessas irreais. Sem depender de sorte.</p>
     </div>
 
-    <div class="section">
-      <div class="sectionTitle">Em 30 dias</div>
-      <div class="card">
-        <h2>O que você vai conseguir</h2>
-        <ul>
-          <li>Definir um problema validado</li>
-          <li>Criar uma promessa clara</li>
-          <li>Construir autoridade mesmo começando agora</li>
-          <li>Montar sua primeira oferta digital</li>
-          <li>Abrir seu primeiro lançamento</li>
-        </ul>
-        <div class="hr"></div>
-        <h2>Sem precisar:</h2>
-        <ul>
-          <li>Ter milhares de seguidores</li>
-          <li>Ter equipe</li>
-          <li>Investir em tráfego pago</li>
-          <li>Ser especialista famoso</li>
-        </ul>
-      </div>
+    <h2>O que você consegue em 30 dias</h2>
+
+    <div class="card">
+      <ul>
+        <li>Definir um problema validado</li>
+        <li>Criar uma promessa clara</li>
+        <li>Construir autoridade começando do zero</li>
+        <li>Montar sua primeira oferta digital</li>
+        <li>Abrir seu primeiro lançamento</li>
+      </ul>
     </div>
 
-    <div class="section">
-      <div class="sectionTitle">Para quem não é</div>
-      <div class="card">
-        <h2>Se você busca atalho, não é aqui</h2>
-        <ul>
-          <li>Quer enriquecer rápido</li>
-          <li>Procura atalho</li>
-          <li>Não executa</li>
-          <li>Culpa algoritmo</li>
-        </ul>
-        <p class="fine" style="margin-top:10px">É para quem quer sair do zero com método.</p>
-      </div>
+    <h2>O que você recebe</h2>
+
+    <div class="card">
+      <ul>
+        <li>Manual completo com 25 capítulos estruturados</li>
+        <li>Plano operacional de 30 dias</li>
+        <li>Modelo simples de oferta</li>
+        <li>Roteiro de abertura</li>
+        <li>Checklist de execução</li>
+      </ul>
     </div>
 
-    <div class="section">
-      <div class="sectionTitle">O que você recebe</div>
-      <div class="card">
-        <ul>
-          <li>Manual completo com 25 capítulos estruturados</li>
-          <li>Plano operacional de 30 dias</li>
-          <li>Estrutura pronta de promessa</li>
-          <li>Modelo simples de oferta</li>
-          <li>Roteiro de abertura</li>
-          <li>Estrutura de urgência final</li>
-          <li>Checklist de execução</li>
-        </ul>
-        <p class="fine" style="margin-top:10px">Tudo organizado em progressão lógica.</p>
-      </div>
+    <h2>Investimento</h2>
+
+    <div class="card center">
+      <p>Pagamento único</p>
+      <div class="price">R$ 97</div>
+      <p>Sem mensalidade • Sem taxa escondida</p>
+      <a href="SEU_LINK_CHECKOUT_AQUI" class="btn">Sim, eu quero sair do zero agora</a>
+      <p style="margin-top:20px;">🛡️ Garantia de 7 dias. Se não fizer sentido para você, reembolso sem burocracia.</p>
     </div>
 
-    <div class="section" id="comprar">
-      <div class="sectionTitle">Investimento</div>
-      <div class="card">
-        <div class="price">
-          <div>
-            <div class="strike">Pagamento único</div>
-            <div class="value">R$ 97</div>
-            <div class="fine">Sem mensalidade • Sem taxa escondida</div>
-          </div>
-          <a class="btn primary" href="SEU_LINK_CHECKOUT_AQUI" id="btnBuy">QUERO COMEÇAR AGORA</a>
-        </div>
+    <footer>
+      © 2026 Método P.A.S.S.O.™
+    </footer>
 
-        <div class="hr"></div>
-
-        <div class="guarantee">
-          <b>🛡️ Garantia de 7 dias</b><br/>
-          Você terá 7 dias para testar o método. Se perceber que não é para você, basta solicitar reembolso. Sem burocracia.
-        </div>
-
-        <div class="hr"></div>
-
-        <p style="margin:0">
-          <b>🔥 Vamos ser diretos:</b><br/>
-          Você não precisa se sentir pronto. Precisa começar organizado. Se você aplicar, funciona. Se você não aplicar, nada muda.
-        </p>
-      </div>
-    </div>
-
-    <p class="footer">
-      © <span id="year"></span> Método P.A.S.S.O.™ • <a href="#topo">Voltar ao topo</a>
-    </p>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // (Opcional) Tracking simples de clique (substitua por Pixel/GA se quiser):
-    function trackClick(label){
-      try { console.log("CTA click:", label, new Date().toISOString()); } catch(e){}
-    }
-    document.getElementById("btnHero").addEventListener("click", () => trackClick("hero"));
-    document.getElementById("btnBuy").addEventListener("click", () => trackClick("buy"));
-  </script>
 </body>
 </html>
